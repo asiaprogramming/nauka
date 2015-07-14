@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript" src="jquery-2.1.4.js"></script>
+</head>
+<body>
+
+<p id="tekst">asdfs</p>
+<p class="klasa1" style="background-color: crimson">klasa 1</p>
+<p class="klasa2"></p>
+<p class="klasa2"></p>
+
+<script type="application/javascript">
+    var bezJquery = function () {
+        do {
+            console.log("dupa asi jest sexy");
+        } while (false);
+        moj_tag_p_o_id_tekst = document.getElementById("tekst").innerHTML = "dupa"
+    };
+
+    $("#tekst").text("dupa jquery");
+
+    $(".klasa2").text("klasa2 text");
+
+
+
+    eleements = document.getElementsByClassName("klasa2")
+    for(var i = 0; i< eleements.length; ++i){
+        eleements[i].innerHTML = "klasa 2 bez jquery"
+    }
+    var change_background =  function (selector) {
+        return function(){
+            red = Math.round(Math.random() * 255);
+            green = Math.round(Math.random() * 255);
+            blue = Math.round(Math.random() * 255);
+            $(selector).css("background-color", "rgb(" + red + ", " + green + ", " + blue + ")");
+        }
+    };
+    window.setInterval(change_background(".klasa1"), 200);
+    window.setInterval(change_background(".klasa2"), 400);
+    window.setInterval(change_background("#tekst"), 800);
+    window.setInterval(change_background("body"), 800);
+
+
+</script>
+</body>
+</html>
